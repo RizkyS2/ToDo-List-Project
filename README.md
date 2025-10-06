@@ -1,26 +1,72 @@
-# Lumen PHP Framework
+## Persyaratan Sistem
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/lumen)](https://packagist.org/packages/laravel/lumen-framework)
+Sebelum memulai, pastikan kamu sudah menginstal:
+- **PHP 8.1^** atau lebih baru  
+- **Composer**  
+- **PostgreSQL**  
+- **Git**
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+---
 
-> **Note:** In the years since releasing Lumen, PHP has made a variety of wonderful performance improvements. For this reason, along with the availability of [Laravel Octane](https://laravel.com/docs/octane), we no longer recommend that you begin new projects with Lumen. Instead, we recommend always beginning new projects with [Laravel](https://laravel.com).
+## Langkah Instalasi
 
-## Official Documentation
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini secara lokal:
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+### 1. Clone Repository
 
-## Contributing
+<pre>
+git clone https://github.com/RizkyS2/ToDo-List-Project.git
+cd todolist  
+</pre>
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Security Vulnerabilities
+### 2. Install Dependency
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+<pre>
+composer install  
+</pre>
 
-## License
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 3. Salin File Environment 
+
+<pre>
+cp .env.example .env  
+</pre>
+
+Kemudian edit file .env sesuai dengan konfigurasi lokal anda, sebagai contoh:
+
+<pre>
+APP_NAME="ToDoList"
+APP_ENV=local
+APP_KEY=
+APP_DEBUG=true
+APP_URL=http://localhost
+
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=todolist
+DB_USERNAME=root
+DB_PASSWORD=
+</pre>
+
+
+### 4. Generate Key Aplikasi
+
+<pre>
+  php artisan key:generate
+</pre>
+
+
+### 5. Jalan Migrasi dan Seeder
+
+<pre>
+  php artisan migrate:fresh --seed
+</pre>
+
+
+### 6. Jalankan Server Laravel
+
+<pre>
+  php -S localhost:{port} -t public
+</pre>
