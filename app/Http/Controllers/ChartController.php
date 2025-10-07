@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class ChartController extends Controller
 {
-    public function getChartData(Request $request)
+    public function getChartToDoList(Request $request)
     {
         try {
             $type = $request->query('type', 'status');

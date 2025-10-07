@@ -22,7 +22,7 @@ $router->group(["prefix" => "api"], function () use ($router) {
     $router->group(["prefix" => "todo_list"], function () use ($router) {
         $router->post("create", "ToDoListController@create");
         $router->get('export', 'ToDoListController@exportExcel');
+        $router->get('chart', 'ChartController@getChartToDoList');
     });
 
-    $router->get('/chart', 'ChartController@getChartData');
 });
