@@ -32,7 +32,20 @@ class ToDoListExport implements FromView
 
         // Filter berdasarkan due_date
         if ($this->request->filled('start') && $this->request->filled('end')) {
+            
+            // Jika keduanya diisi
             $query->whereBetween('due_date', [$this->request->start, $this->request->end]);
+
+        } elseif ($this->request->filled('start')) {
+            
+            // Hanya start diisi → semua due_date setelah atau sama dengan start
+            $query->where('due_date', '>=', $this->request->due_date_start);
+
+        } elseif ($this->request->filled('end')) {
+
+            // Hanya end diisi → semua due_date sebelum atau sama dengan end
+            $query->where('due_date', '<=', $this->request->end);
+            
         }
 
         // Filter berdasarkan catatan waktu
