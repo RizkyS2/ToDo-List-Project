@@ -108,18 +108,5 @@ class ResponseType
         "status" => false,
         "message" => "Database Validation Error",
     ];
-
-    const CHIPER_KEY_INVALID = [
-        "code" => "400",
-        "rc" => "03",
-        "status" => false,
-        "message" => "Cipher key is invalid",
-    ];
-
-    const INVALID_SLIK = [
-        "code" => "400",
-        "rc" => "99",
-        "status" => false,
-        "message" => "No matching data found",
-    ];
+    
 }
